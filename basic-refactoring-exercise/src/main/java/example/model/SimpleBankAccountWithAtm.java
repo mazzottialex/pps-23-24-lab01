@@ -4,6 +4,7 @@ public class SimpleBankAccountWithAtm implements BankAccount {
 
     private double balance;
     private final AccountHolder holder;
+    private final int FEE = 1;
 
     public SimpleBankAccountWithAtm(final AccountHolder holder, final double balance) {
         this.balance = balance;
@@ -22,8 +23,7 @@ public class SimpleBankAccountWithAtm implements BankAccount {
 
     @Override
     public void deposit(int userID, double amount) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deposit'");
+        this.balance = this.balance + amount - FEE;
     }
 
     @Override

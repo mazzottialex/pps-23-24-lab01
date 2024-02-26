@@ -22,4 +22,9 @@ class SimpleBankAccountWithAtmTest {
         assertEquals(simpleBankAccountWithAtm.getBalance(), 1000);
     }
 
+    @Test 
+    void depositWithFee(){
+        simpleBankAccountWithAtm.deposit(0, 100);
+        assertEquals(simpleBankAccountWithAtm.getBalance(), 1099);
+    }
 }
