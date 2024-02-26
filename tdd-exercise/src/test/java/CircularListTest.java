@@ -41,4 +41,10 @@ public class CircularListTest {
         assertEquals(circularList.next(), Optional.of(0));
     }
 
+    @Test
+    void PreviousIsCorrectWithOneElements(){
+        AddAnElement();
+        assertEquals(circularList.previous(), Optional.of(0));
+    }
+    
 }
