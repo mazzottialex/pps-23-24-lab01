@@ -38,7 +38,6 @@ public class CircularListImpl implements CircularList {
     public Optional<Integer> next(){
         index++;
         index = (index + size()) % size();
-        System.out.println(liElements);
         return Optional.of(liElements.get(index));
     }
 
@@ -47,10 +46,10 @@ public class CircularListImpl implements CircularList {
      * @return the previous element into the list
      */
     public Optional<Integer> previous(){
-        index--;
-        index = index % size();
+        if(index != -1)
+            index--;
+        index = (index + size()) % size();
         return Optional.of(liElements.get(index));
-
     }
 
     /**
