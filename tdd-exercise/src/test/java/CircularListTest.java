@@ -111,4 +111,13 @@ public class CircularListTest {
     void NextWithEmptyList(){
         assertEquals(circularList.next(), Optional.empty());
     }
+
+    @Test 
+    void ResetPosition(){
+        AddElements();
+        assertEquals(circularList.next(), Optional.of(0));
+        assertEquals(circularList.next(), Optional.of(1));
+        circularList.reset();
+        assertEquals(circularList.next(), Optional.of(0));
+    }
 }

@@ -61,7 +61,7 @@ public class CircularListImpl implements CircularList {
      * Note the first one is the first added to the list.
      */
     public void reset(){
-        
+        index=-1;
     }
 
 }
