@@ -1,11 +1,16 @@
 package tdd;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class CircularListImpl implements CircularList {
 
-    public void add(final int element){
+    private List<Integer> liElements=new ArrayList<>();
+    private int index=0;
 
+    public void add(final int element){
+        liElements.add(element);
     }
 
     /**
@@ -13,7 +18,7 @@ public class CircularListImpl implements CircularList {
      * @return the size of the list
      */
     public int size(){
-        return 0;
+        return liElements.size();
         
     }
 
@@ -22,7 +27,7 @@ public class CircularListImpl implements CircularList {
      * @return true if the list is empty, false otherwise
      */
     public boolean isEmpty(){
-        return true;
+        return liElements.isEmpty();
         
     }
 
@@ -31,8 +36,8 @@ public class CircularListImpl implements CircularList {
      * @return the next element of the list, or an empty optional if the list is empty
      */
     public Optional<Integer> next(){
-        return null;
-        
+        index++;
+        return Optional.of(liElements.get(index-1));
     }
 
     /**
