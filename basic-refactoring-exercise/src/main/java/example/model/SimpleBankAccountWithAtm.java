@@ -2,10 +2,17 @@ package example.model;
 
 public class SimpleBankAccountWithAtm implements BankAccount {
 
+    private double balance;
+    private final AccountHolder holder;
+
+    public SimpleBankAccountWithAtm(final AccountHolder holder, final double balance) {
+        this.balance = balance;
+        this.holder = holder;
+    }
+
     @Override
     public AccountHolder getHolder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHolder'");
+        return this.holder;
     }
 
     @Override
