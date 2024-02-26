@@ -33,9 +33,12 @@ public class CircularListTest {
         circularList.add(0);
         assertTrue(!circularList.isEmpty());
         assertEquals(circularList.size(), 1);
-        assertEquals(circularList.next(), Optional.of(0));
     }
 
-    
+    @Test
+    void NextIsCorrectWithOneElements(){
+        AddAnElement();
+        assertEquals(circularList.next(), Optional.of(0));
+    }
 
 }
