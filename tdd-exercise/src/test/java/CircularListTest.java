@@ -47,4 +47,28 @@ public class CircularListTest {
         assertEquals(circularList.previous(), Optional.of(0));
     }
     
+    @Test
+    void AddElements(){
+        circularList.add(0);
+        circularList.add(1);
+        circularList.add(2);
+        circularList.add(3);
+        circularList.add(4);
+        assertEquals(circularList.size(), 5);
+
+
+        assertTrue(!circularList.isEmpty());
+    }
+
+    @Test
+    void NextIsCorrectWithMoreElements(){
+        AddElements();
+        assertEquals(circularList.next(), Optional.of(0));
+        assertEquals(circularList.next(), Optional.of(1));
+        assertEquals(circularList.next(), Optional.of(2));
+        assertEquals(circularList.next(), Optional.of(3));
+        assertEquals(circularList.next(), Optional.of(4));
+        assertEquals(circularList.next(), Optional.of(0));
+        assertEquals(circularList.next(), Optional.of(1));
+    }
 }
