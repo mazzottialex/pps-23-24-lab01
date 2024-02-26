@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CircularListImpl implements CircularList {
+public class CircularListImpl implements CircularList, tdd.v2.CircularList {
 
     private List<Integer> liElements = new ArrayList<>();
     private int index = -1;
