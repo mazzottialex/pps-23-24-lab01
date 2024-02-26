@@ -17,8 +17,7 @@ public class SimpleBankAccountWithAtm implements BankAccount {
 
     @Override
     public double getBalance() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBalance'");
+        return balance;
     }
 
     @Override

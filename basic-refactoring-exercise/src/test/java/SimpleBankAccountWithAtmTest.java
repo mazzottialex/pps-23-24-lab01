@@ -1,3 +1,6 @@
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +18,8 @@ class SimpleBankAccountWithAtmTest {
     }
 
     @Test
-    void getHolderFromBankAccountWithAtm(){
-        simpleBankAccountWithAtm.getHolder();
+    void getBalance(){
+        assertEquals(simpleBankAccountWithAtm.getBalance(), 1000);
     }
+
 }
