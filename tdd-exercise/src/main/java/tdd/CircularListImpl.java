@@ -36,6 +36,8 @@ public class CircularListImpl implements CircularList {
      * @return the next element of the list, or an empty optional if the list is empty
      */
     public Optional<Integer> next(){
+        if(isEmpty())
+            return Optional.empty();
         index++;
         index = (index + size()) % size();
         return Optional.of(liElements.get(index));
@@ -46,6 +48,8 @@ public class CircularListImpl implements CircularList {
      * @return the previous element into the list
      */
     public Optional<Integer> previous(){
+        if(isEmpty())
+            return Optional.empty();
         if(index != -1)
             index--;
         index = (index + size()) % size();

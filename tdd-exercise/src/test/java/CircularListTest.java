@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
@@ -82,5 +83,32 @@ public class CircularListTest {
         assertEquals(circularList.previous(), Optional.of(0));
         assertEquals(circularList.previous(), Optional.of(4));
         assertEquals(circularList.previous(), Optional.of(3));
+    }
+
+    @Test
+    void NextPreviousIsCorrectWithMoreElements(){
+        AddElements();
+        assertEquals(circularList.previous(), Optional.of(4));
+        assertEquals(circularList.previous(), Optional.of(3));
+        assertEquals(circularList.next(), Optional.of(4));
+        assertEquals(circularList.previous(), Optional.of(3));
+        assertEquals(circularList.next(), Optional.of(4));
+        assertEquals(circularList.next(), Optional.of(0));
+        assertEquals(circularList.previous(), Optional.of(4));
+    }
+
+    @Test
+    void AddElementBetweenMove(){
+        AddElements();
+        assertEquals(circularList.previous(), Optional.of(4));
+        assertEquals(circularList.previous(), Optional.of(3));
+        assertEquals(circularList.next(), Optional.of(4));
+        circularList.add(5);
+        assertEquals(circularList.next(), Optional.of(5));
+    }
+
+    @Test
+    void NextWithEmptyList(){
+        assertEquals(circularList.next(), Optional.empty());
     }
 }
