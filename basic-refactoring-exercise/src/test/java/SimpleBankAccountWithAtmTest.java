@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,5 +33,13 @@ class SimpleBankAccountWithAtmTest {
     void withdrawWithFee(){
         simpleBankAccountWithAtm.withdraw(0, 100);
         assertEquals(simpleBankAccountWithAtm.getBalance(), 899);
+    }
+
+    @Test
+    void wrongWithDraw(){
+        assertAll(
+        () -> assertThrows(IllegalStateException.class, () -> simpleBankAccountWithAtm.withdraw(0, 1000)),
+        () -> assertEquals(simpleBankAccountWithAtm.getBalance(), 1000)
+        );
     }
 }

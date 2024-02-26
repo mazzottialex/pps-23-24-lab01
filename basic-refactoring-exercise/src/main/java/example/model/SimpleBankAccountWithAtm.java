@@ -4,7 +4,7 @@ public class SimpleBankAccountWithAtm implements BankAccount {
 
     private double balance;
     private final AccountHolder holder;
-    private final int FEE = 1;
+    private final double FEE = 1;
 
     public SimpleBankAccountWithAtm(final AccountHolder holder, final double balance) {
         this.balance = balance;
@@ -28,6 +28,9 @@ public class SimpleBankAccountWithAtm implements BankAccount {
 
     @Override
     public void withdraw(int userID, double amount) {
+        if ( this.balance <= amount + FEE ) {
+            throw new IllegalStateException();
+        }
         this.balance = this.balance - amount - FEE;
     }
 
