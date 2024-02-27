@@ -1,8 +1,9 @@
 package tdd.v2;
 
+import java.util.Iterator;
 import java.util.Optional;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
+
 
 public interface CircularList {
     /**
@@ -27,13 +28,13 @@ public interface CircularList {
      * returns a new java.util.Iterator, which yields next elements, circularly
      * @return iterator of next the list
      */
-    Iterator forwardIterator();
+    Iterator<Integer> forwardIterator();
 
     /**
      * returns a new java.util.Iterator, which yields previous elements, circularly
      * @return iterator backward of the list
      */
-    Iterator backwardIterator();
+    Iterator<Integer> backwardIterator();
 
     /**
      * Reset the position of current element back to the first one of the list.

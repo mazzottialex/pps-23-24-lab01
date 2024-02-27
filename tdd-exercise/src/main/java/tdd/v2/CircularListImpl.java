@@ -1,11 +1,16 @@
 package tdd.v2;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 
 public class CircularListImpl implements CircularList {
     
-    public void add(final int element){
+    private final List<Integer> li = new ArrayList<>();
 
+    public void add(final int element){
+        li.add(element);
     }
 
     public int size(){
@@ -16,11 +21,11 @@ public class CircularListImpl implements CircularList {
         return true;
     }
 
-    public Iterator forwardIterator(){
-        return null;
+    public Iterator<Integer> forwardIterator(){
+        return li.iterator();
     }
 
-    public Iterator backwardIterator(){
+    public Iterator<Integer> backwardIterator(){
         return null;
     }
 
