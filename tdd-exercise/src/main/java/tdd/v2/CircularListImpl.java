@@ -14,7 +14,7 @@ public class CircularListImpl implements CircularList {
     }
 
     public int size(){
-        return 0;
+        return li.size();
     }
 
     public boolean isEmpty(){
@@ -23,7 +23,9 @@ public class CircularListImpl implements CircularList {
 
     public Iterator<Integer> forwardIterator(){
         return new Iterator<Integer>() {
+            
             private int index = -1;
+            
             @Override
             public boolean hasNext() {
                 return true;
@@ -39,10 +41,21 @@ public class CircularListImpl implements CircularList {
     }
 
     public Iterator<Integer> backwardIterator(){
-        return li.reversed().iterator();
-    }
+        return new Iterator<Integer>() {
+            
+            private int index = size();
 
-    public void reset(){
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
 
+            @Override
+            public Integer next() {
+                index--;
+                index = (index + li.size()) % li.size();
+                return li.get(index);
+            }
+        };
     }
 }

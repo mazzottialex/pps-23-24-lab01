@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -66,6 +68,32 @@ public class CircularListTest{
             ()-> assertEquals(it3.next(), it.next()),
             ()-> assertEquals(it3.next(), it.next())
         );
+    }
 
+    @Test
+    void CheckBackwardWithElements(){
+        List<Integer> li = List.of(4,3,2,1,0);
+        circularList.add(0);
+        circularList.add(1);
+        circularList.add(2);
+        circularList.add(3);
+        circularList.add(4);
+        Iterator<Integer> it = circularList.backwardIterator();
+        Iterator<Integer> it2 = li.iterator();
+        assertAll(
+            ()-> assertEquals(it2.next(), it.next()),
+            ()-> assertEquals(it2.next(), it.next()),
+            ()-> assertEquals(it2.next(), it.next()),
+            ()-> assertEquals(it2.next(), it.next()),
+            ()-> assertEquals(it2.next(), it.next())
+        );
+        Iterator<Integer> it3 = li.iterator();
+        assertAll(
+            ()-> assertEquals(it3.next(), it.next()),
+            ()-> assertEquals(it3.next(), it.next()),
+            ()-> assertEquals(it3.next(), it.next()),
+            ()-> assertEquals(it3.next(), it.next()),
+            ()-> assertEquals(it3.next(), it.next())
+        );
     }
 }
