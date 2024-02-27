@@ -26,7 +26,7 @@ public class CircularListImpl implements CircularList {
     }
 
     public Iterator<Integer> backwardIterator(){
-        return null;
+        return li.reversed().iterator();
     }
 
     public void reset(){

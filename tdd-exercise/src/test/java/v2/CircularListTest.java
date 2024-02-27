@@ -27,8 +27,17 @@ public class CircularListTest{
 
     @Test
     void CheckForwardWithOneElement(){
-        List li = List.of(0);
+        List<Integer> li = List.of(0);
         circularList.add(0);
         assertEquals(li.iterator().next(), circularList.forwardIterator().next());
     }
+
+    @Test
+    void CheckBackwardWithOneElement(){
+        List<Integer> li = List.of(0);
+        circularList.add(0);
+        assertEquals(li.iterator().next(), circularList.backwardIterator().next());
+    }
+
+    
 }
