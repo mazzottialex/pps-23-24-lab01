@@ -22,7 +22,20 @@ public class CircularListImpl implements CircularList {
     }
 
     public Iterator<Integer> forwardIterator(){
-        return li.iterator();
+        return new Iterator<Integer>() {
+            private int index = -1;
+            @Override
+            public boolean hasNext() {
+                return true;
+            }
+            
+           @Override
+           public Integer next() {
+               index++;
+               index = (index + li.size()) % li.size();
+               return li.get(index);
+           }          
+        };
     }
 
     public Iterator<Integer> backwardIterator(){
